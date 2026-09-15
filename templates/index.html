@@ -1,0 +1,95 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mini-Trello</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+    <header class="header">
+        <h1>Mini-Trello</h1>
+        <button id="createTaskBtn" class="create-btn">+ Create New Task</button>
+    </header>
+
+    <main class="board">
+
+        <section class="column todo-column">
+            <div class="column-header">
+                <h2>To Do</h2>
+                <span id="todoCount">0</span>
+            </div>
+            <div id="todoTasks" class="task-list"></div>
+        </section>
+
+        <section class="column progress-column">
+            <div class="column-header">
+                <h2>In Progress</h2>
+                <span id="progressCount">0</span>
+            </div>
+            <div id="progressTasks" class="task-list"></div>
+        </section>
+
+        <section class="column done-column">
+            <div class="column-header">
+                <h2>Done</h2>
+                <span id="doneCount">0</span>
+            </div>
+            <div id="doneTasks" class="task-list"></div>
+        </section>
+
+    </main>
+
+    <div id="taskModal" class="modal">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <h2>Create New Task</h2>
+                <button id="closeModalBtn" class="close-btn">&times;</button>
+            </div>
+
+            <form id="taskForm">
+
+                <div class="form-group">
+                    <label for="title">Title</label>
+                    <input
+                        type="text"
+                        id="title"
+                        name="title"
+                        placeholder="Enter task title"
+                        required
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="description">Description</label>
+                    <textarea
+                        id="description"
+                        name="description"
+                        placeholder="Enter task description"
+                        required
+                    ></textarea>
+                </div>
+
+                <div class="form-actions">
+                    <button type="button" id="cancelBtn" class="cancel-btn">
+                        Cancel
+                    </button>
+
+                    <button type="submit" class="submit-btn">
+                        Create Task
+                    </button>
+                </div>
+
+            </form>
+
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+</body>
+</html>
