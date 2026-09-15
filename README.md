@@ -1,92 +1,66 @@
-
-
 <div align="center">
 
-📋 Mini-Trello — Kanban Task Management Board
+# 📋 Mini-Trello — Kanban Task Management Board
 
-A lightweight Kanban task management web application built with Python, Flask, JavaScript & SQLite
-
-
-
-
-
-
-
-<br/>
+**A lightweight Kanban task management web application built with Python, Flask, JavaScript & SQLite.**
 
 Create tasks · Track progress · Move tasks · Complete work · Delete tasks
 
-<br/>
+<br>
 
-🚀 Quick Start · ✨ Features · 🛠 Tech Stack · 📖 API
+[🚀 Quick Start](#-quick-start) ·
+[✨ Features](#-features) ·
+[🛠️ Tech Stack](#️-tech-stack) ·
+[📖 API](#-rest-api) ·
+[🚀 Deployment](#-deployment-on-render)
 
 </div>
 
-🎯 Problem Statement
+---
+
+## 🎯 Problem Statement
 
 Managing tasks through simple to-do lists can make it difficult to understand the current progress of work.
 
 Users need a simple visual system that allows them to:
 
-Create tasks
+* Create tasks
+* Organize tasks by their current status
+* Track work in progress
+* Identify completed tasks
+* Update task status easily
+* Remove unnecessary tasks
 
-Organize tasks by their current status
+**Mini-Trello** solves this problem by providing a simple Kanban board with three workflow stages:
 
-Track work in progress
+```text
+┌──────────────┐       ┌────────────────┐       ┌──────────────┐
+│    TO DO     │ ────► │  IN PROGRESS   │ ────► │     DONE     │
+│              │       │                │       │              │
+│ New Tasks    │       │ Active Tasks   │       │ Completed    │
+│              │       │                │       │ Tasks        │
+└──────────────┘       └────────────────┘       └──────────────┘
+```
 
-Identify completed tasks
+---
 
-Update task status easily
+## ✨ Features
 
-Remove unnecessary tasks
+### 📋 Task Management
 
-Mini-Trello solves this problem by providing a simple Kanban board with three workflow stages:
+| Feature                  | Description                                |
+| ------------------------ | ------------------------------------------ |
+| **Create Task**          | Create a task with title and description   |
+| **View Tasks**           | Display all tasks grouped by status        |
+| **Move Forward**         | Move a task to the next workflow stage     |
+| **Move Backward**        | Move a task to the previous workflow stage |
+| **Delete Task**          | Remove a task after confirmation           |
+| **Database Persistence** | Store tasks permanently in SQLite          |
+| **Task Counters**        | Display the number of tasks in each column |
 
-┌──────────────┐     ┌────────────────┐     ┌──────────────┐
-│    TO DO     │ ──► │  IN PROGRESS   │ ──► │     DONE     │
-│              │     │                │     │              │
-│ New Tasks    │     │ Active Tasks   │     │ Completed    │
-│              │     │                │     │ Tasks        │
-└──────────────┘     └────────────────┘     └──────────────┘
+### 🗂️ Kanban Workflow
 
-✨ Features
-
-📋 Task Management
-
-Feature
-
-Description
-
-Create Task
-
-Create a task with title and description
-
-View Tasks
-
-Display all tasks grouped by status
-
-Move Forward
-
-Move a task to the next workflow stage
-
-Move Backward
-
-Move a task to the previous workflow stage
-
-Delete Task
-
-Remove a task after confirmation
-
-Database Persistence
-
-Store tasks permanently in SQLite
-
-Task Counters
-
-Display the number of tasks in each column
-
-🗂 Kanban Workflow
-
+```text
 To Do
   │
   │ Next
@@ -96,9 +70,11 @@ In Progress
   │ Next
   ▼
 Done
+```
 
 Tasks can also be moved backwards:
 
+```text
 Done
   │
   │ Previous
@@ -108,85 +84,40 @@ In Progress
   │ Previous
   ▼
 To Do
+```
 
-🎨 Responsive Interface
+### 🎨 Responsive Interface
 
-Clean Kanban board
+* Clean Kanban board
+* Three-column layout
+* Responsive design
+* Task cards
+* Create Task modal
+* Previous / Next controls
+* Delete confirmation
+* Empty-column messages
+* Mobile-friendly layout
 
-Three-column layout
+---
 
-Responsive design
+## 🛠️ Tech Stack
 
-Task cards
+| Layer                 | Technology         | Purpose                          |
+| --------------------- | ------------------ | -------------------------------- |
+| **Frontend**          | HTML5              | Page structure                   |
+| **Styling**           | CSS3               | Responsive UI and Kanban design  |
+| **Client Logic**      | Vanilla JavaScript | API communication and dynamic UI |
+| **Backend**           | Flask              | Web server and REST API          |
+| **Database**          | SQLite             | Task data persistence            |
+| **Database Access**   | Python `sqlite3`   | SQLite connection and queries    |
+| **Production Server** | Gunicorn           | Production deployment            |
+| **Deployment**        | Render             | Cloud hosting                    |
 
-Create Task modal
+---
 
-Previous / Next controls
+## 📁 Project Structure
 
-Delete confirmation
-
-Empty-column messages
-
-Mobile-friendly layout
-
-🛠 Tech Stack
-
-Layer
-
-Technology
-
-Purpose
-
-Frontend
-
-HTML5
-
-Page structure
-
-Styling
-
-CSS3
-
-Responsive UI and Kanban design
-
-Client Logic
-
-Vanilla JavaScript
-
-API communication and dynamic UI
-
-Backend
-
-Flask
-
-Web server and REST API
-
-Database
-
-SQLite
-
-Task data persistence
-
-Database Access
-
-Python sqlite3
-
-SQLite connection and queries
-
-Production Server
-
-Gunicorn
-
-Deployment on Render
-
-Deployment
-
-Render
-
-Cloud hosting
-
-📁 Project Structure
-
+```text
 mini_trello/
 │
 ├── 📄 app.py
@@ -206,57 +137,30 @@ mini_trello/
     │
     └── 📂 js/
         └── 📄 script.js
+```
 
-File Responsibilities
+### File Responsibilities
 
-File
+| File               | Responsibility                                |
+| ------------------ | --------------------------------------------- |
+| `app.py`           | Flask application and REST API routes         |
+| `database.py`      | SQLite connection and database initialization |
+| `models.py`        | Task CRUD and database operations             |
+| `index.html`       | Kanban board interface                        |
+| `style.css`        | Application styling and responsive layout     |
+| `script.js`        | Frontend interaction and API requests         |
+| `requirements.txt` | Python dependencies                           |
+| `trello.db`        | SQLite database created automatically         |
+| `README.md`        | Project documentation                         |
+| `LICENSE`          | MIT License                                   |
 
-Responsibility
+---
 
-app.py
+## 🏗️ Architecture
 
-Flask application and REST API routes
+Mini-Trello follows a simple **client-server architecture**.
 
-database.py
-
-SQLite connection and database initialization
-
-models.py
-
-Task CRUD and database operations
-
-index.html
-
-Kanban board interface
-
-style.css
-
-Application styling and responsive layout
-
-script.js
-
-Frontend interaction and API requests
-
-requirements.txt
-
-Python dependencies
-
-trello.db
-
-SQLite database created automatically
-
-README.md
-
-Project documentation
-
-LICENSE
-
-MIT License
-
-🏗 Architecture
-
-Mini-Trello follows a simple client-server architecture.
-
+```text
 ┌──────────────────────────────────────────────────────┐
 │                    Web Browser                       │
 │                                                      │
@@ -269,7 +173,7 @@ Mini-Trello follows a simple client-server architecture.
 │                    Flask Server                      │
 │                       app.py                         │
 │                                                      │
-│   GET · POST · PUT · DELETE                          │
+│             GET · POST · PUT · DELETE               │
 └───────────────────────┬──────────────────────────────┘
                         │
                         ▼
@@ -277,7 +181,7 @@ Mini-Trello follows a simple client-server architecture.
 │                    Task Model                        │
 │                    models.py                         │
 │                                                      │
-│        Create · Read · Update · Delete               │
+│              Create · Read · Update · Delete         │
 └───────────────────────┬──────────────────────────────┘
                         │
                         ▼
@@ -291,11 +195,15 @@ Mini-Trello follows a simple client-server architecture.
 │                    SQLite                            │
 │                   trello.db                          │
 └──────────────────────────────────────────────────────┘
+```
 
-🔄 Application Flow
+---
 
-Create Task
+## 🔄 Application Flow
 
+### Create Task
+
+```text
 User
  │
  ▼
@@ -321,9 +229,11 @@ SQLite
  │
  ▼
 New Task → To Do
+```
 
-Move Task
+### Move Task
 
+```text
 Click "Next" / "Previous"
           │
           ▼
@@ -346,9 +256,11 @@ Click "Next" / "Previous"
           │
           ▼
  Updated Kanban Board
+```
 
-Delete Task
+### Delete Task
 
+```text
 Click Delete
      │
      ▼
@@ -368,75 +280,52 @@ Task Removed
      │
      ▼
 Board Updated
+```
 
-🗄 Database Design
+---
 
-Mini-Trello uses SQLite for task persistence.
+## 🗄️ Database Design
 
-Tasks Table
+Mini-Trello uses **SQLite** for task persistence.
 
-Column
+### Tasks Table
 
-Type
+| Column        | Type    | Constraint  | Description             |
+| ------------- | ------- | ----------- | ----------------------- |
+| `id`          | INTEGER | Primary Key | Unique task ID          |
+| `title`       | TEXT    | NOT NULL    | Task title              |
+| `description` | TEXT    | NOT NULL    | Task description        |
+| `status`      | TEXT    | NOT NULL    | Current workflow status |
 
-Constraint
+### Status Values
 
-Description
-
-id
-
-INTEGER
-
-Primary Key
-
-Unique task ID
-
-title
-
-TEXT
-
-NOT NULL
-
-Task title
-
-description
-
-TEXT
-
-NOT NULL
-
-Task description
-
-status
-
-TEXT
-
-NOT NULL
-
-Current workflow status
-
-Status Values
-
+```text
 todo
 in_progress
 done
+```
 
-Every newly created task starts in:
+Every newly created task starts with:
 
-todo
+```text
+status = todo
+```
 
-📖 REST API
+---
+
+# 📖 REST API
 
 Mini-Trello provides a RESTful API for task management.
 
-Get All Tasks
+## Get All Tasks
 
-GET /api/tasks
+### `GET /api/tasks`
 
 Returns all tasks stored in the database.
 
-Response
+**Response:**
 
+```json
 [
     {
         "id": 1,
@@ -445,232 +334,259 @@ Response
         "status": "todo"
     }
 ]
+```
 
-Create New Task
+---
 
-POST /api/tasks
+## Create New Task
 
-Request
+### `POST /api/tasks`
 
+Creates a new task. Newly created tasks are automatically assigned to the `todo` status.
+
+**Request:**
+
+```json
 {
     "title": "Design Database",
     "description": "Create the database schema."
 }
+```
 
-Response
+**Response:**
 
+```json
 {
     "id": 1,
     "title": "Design Database",
     "description": "Create the database schema.",
     "status": "todo"
 }
+```
 
-Update Task Status
+---
 
-PUT /api/tasks/<task_id>
+## Update Task Status
 
-Request
+### `PUT /api/tasks/<task_id>`
 
+Updates the status of an existing task.
+
+**Request:**
+
+```json
 {
     "status": "in_progress"
 }
+```
 
-Valid status values:
+**Valid status values:**
 
+```text
 todo
 in_progress
 done
+```
 
-Response
+**Response:**
 
+```json
 {
     "id": 1,
     "title": "Design Database",
     "description": "Create the database schema.",
     "status": "in_progress"
 }
+```
 
-Delete Task
+---
 
-DELETE /api/tasks/<task_id>
+## Delete Task
 
-Response
+### `DELETE /api/tasks/<task_id>`
 
+Deletes a task from the database.
+
+**Response:**
+
+```json
 {
     "message": "Task deleted successfully"
 }
+```
 
-📊 API Summary
+---
 
-Method
+## 📊 API Summary
 
-Endpoint
+| Method   | Endpoint          | Description        |
+| -------- | ----------------- | ------------------ |
+| `GET`    | `/api/tasks`      | Get all tasks      |
+| `POST`   | `/api/tasks`      | Create a new task  |
+| `PUT`    | `/api/tasks/<id>` | Update task status |
+| `DELETE` | `/api/tasks/<id>` | Delete a task      |
 
-Description
+---
 
-GET
+# ⚡ Quick Start
 
-/api/tasks
+## Prerequisites
 
-Get all tasks
+Make sure the following are installed:
 
-POST
+* Python 3.9 or higher
+* pip
+* Git
 
-/api/tasks
+## Installation
 
-Create a new task
+### 1. Clone the Repository
 
-PUT
-
-/api/tasks/<id>
-
-Update task status
-
-DELETE
-
-/api/tasks/<id>
-
-Delete a task
-
-⚡ Quick Start
-
-Prerequisites
-
-Python 3.9 or higher
-
-pip
-
-Git
-
-Installation
-
-# 1. Clone the repository
+```bash
 git clone <repository-url>
 cd mini_trello
+```
 
-# 2. Create a virtual environment
+### 2. Create a Virtual Environment
+
+```bash
 python -m venv venv
+```
 
-# Activate — Windows
+### 3. Activate the Virtual Environment
+
+**Windows:**
+
+```bash
 venv\Scripts\activate
+```
 
-# Activate — Mac / Linux
+**macOS / Linux:**
+
+```bash
 source venv/bin/activate
+```
 
-# 3. Install dependencies
+### 4. Install Dependencies
+
+```bash
 pip install -r requirements.txt
+```
 
-# 4. Launch the application
+### 5. Launch the Application
+
+```bash
 python app.py
+```
 
-Open your browser → http://127.0.0.1:5000 🎉
+Open your browser and visit:
 
-Note: The trello.db SQLite database is created automatically when the application starts.
+```text
+http://127.0.0.1:5000
+```
 
-🖥 Usage Guide
+🎉 The Mini-Trello application should now be running.
 
-What you want
+> **Note:** The `trello.db` SQLite database is created automatically when the application starts.
 
-How to do it
+---
 
-Create a task
+# 🖥️ Usage Guide
 
-Click + Create New Task
+| What You Want        | How to Do It                                |
+| -------------------- | ------------------------------------------- |
+| **Create a task**    | Click `+ Create New Task`                   |
+| **Add task details** | Enter title and description                 |
+| **Move forward**     | Click `Next`                                |
+| **Move backward**    | Click `Previous`                            |
+| **Delete a task**    | Click `Delete` and confirm                  |
+| **View task status** | Check the corresponding Kanban column       |
+| **Track task count** | Check the counter at the top of each column |
 
-Add task details
+---
 
-Enter title and description
-
-Move forward
-
-Click Next
-
-Move backward
-
-Click Previous
-
-Delete a task
-
-Click Delete and confirm
-
-View task status
-
-Check the corresponding Kanban column
-
-Track task count
-
-Check the counter at the top of each column
-
-🧪 API Testing
+# 🧪 API Testing
 
 The REST API can be tested using tools such as:
 
-Postman
+* Postman
+* Insomnia
+* cURL
+* Browser Developer Tools
 
-Insomnia
+## Get All Tasks
 
-cURL
-
-Browser developer tools
-
-Example cURL Request
-
-Get all tasks:
-
+```bash
 curl http://127.0.0.1:5000/api/tasks
+```
 
-Create a task:
+## Create a Task
 
+```bash
 curl -X POST http://127.0.0.1:5000/api/tasks \
 -H "Content-Type: application/json" \
 -d "{\"title\":\"Test Task\",\"description\":\"Test task description\"}"
+```
 
-Update a task:
+## Update a Task
 
+```bash
 curl -X PUT http://127.0.0.1:5000/api/tasks/1 \
 -H "Content-Type: application/json" \
 -d "{\"status\":\"in_progress\"}"
+```
 
-Delete a task:
+## Delete a Task
 
+```bash
 curl -X DELETE http://127.0.0.1:5000/api/tasks/1
+```
 
-🚀 Deployment on Render
+---
 
-Mini-Trello can be deployed as a Python Web Service on Render.
+# 🚀 Deployment on Render
 
-Build Command
+Mini-Trello can be deployed as a **Python Web Service on Render**.
 
+## Build Command
+
+```bash
 pip install -r requirements.txt
+```
 
-Start Command
+## Start Command
 
+```bash
 gunicorn app:app
+```
 
-Deployment Steps
+## Deployment Steps
 
-Push the project to a GitHub repository.
+1. Push the project to a GitHub repository.
 
-Create a new Web Service on Render.
+2. Create a new Web Service on Render.
 
-Connect the GitHub repository.
+3. Connect the GitHub repository.
 
-Select the Python environment.
+4. Select the Python environment.
 
-Set the build command:
+5. Set the build command:
 
-pip install -r requirements.txt
+   ```bash
+   pip install -r requirements.txt
+   ```
 
-Set the start command:
+6. Set the start command:
 
-gunicorn app:app
+   ```bash
+   gunicorn app:app
+   ```
 
-Deploy the application.
+7. Deploy the application.
 
-Open the generated Render URL.
+8. Open the generated Render URL.
 
-SQLite Deployment Note
+### ⚠️ SQLite Deployment Note
 
 The project uses SQLite as a lightweight database.
 
@@ -678,177 +594,170 @@ For production applications, persistent storage should be configured if database
 
 For this student project, SQLite provides a simple database solution that is easy to develop, test, and demonstrate.
 
-📅 Agile Development
+---
 
-The project follows a two-sprint Agile/Scrum development approach.
+# 📅 Agile Development
 
-Sprint 1 — Backend & Initial UI
+The project follows a **two-sprint Agile/Scrum development approach**.
 
-Main Activities
+## Sprint 1 — Backend & Initial UI
 
-Project planning
+### Main Activities
 
-Database schema creation
+* Project planning
+* Database schema creation
+* SQLite database setup
+* Task model implementation
+* GET API implementation
+* POST API implementation
+* Initial three-column frontend layout
 
-SQLite database setup
-
-Task model implementation
-
-GET API implementation
-
-POST API implementation
-
-Initial three-column frontend layout
-
-Sprint 1 Deliverable
+### Sprint 1 Deliverable
 
 A working database, testable REST API, and initial Kanban board interface.
 
-Sprint 2 — Integration & Dynamic Functionality
+---
 
-Main Activities
+## Sprint 2 — Integration & Dynamic Functionality
 
-PUT API implementation
+### Main Activities
 
-DELETE API implementation
+* PUT API implementation
+* DELETE API implementation
+* Frontend API integration
+* Dynamic task creation
+* Dynamic task movement
+* Task deletion
+* Database persistence testing
+* Final UI improvements
 
-Frontend API integration
-
-Dynamic task creation
-
-Dynamic task movement
-
-Task deletion
-
-Database persistence testing
-
-Final UI improvements
-
-Sprint 2 Deliverable
+### Sprint 2 Deliverable
 
 A complete working Kanban board with frontend, backend, REST API, and database integration.
 
-📸 Screenshots
+---
 
-Add screenshots of the completed application here.
+# 📸 Screenshots
 
-Kanban Board
+Add screenshots of the completed application below.
 
-Add main Kanban board screenshot here.
+## Kanban Board
 
-Create New Task
+> Add the main Kanban board screenshot here.
 
-Add task creation modal screenshot here.
+## Create New Task
 
-Tasks in Different Stages
+> Add the task creation modal screenshot here.
 
-Add screenshot showing tasks across To Do, In Progress, and Done.
+## Tasks in Different Stages
 
-🗺 Roadmap
+> Add a screenshot showing tasks across To Do, In Progress, and Done.
 
-User authentication
+---
 
-Multiple user accounts
+# 🗺️ Roadmap
 
-Task assignment
+Future improvements planned for Mini-Trello:
 
-Drag-and-drop task movement
+* [ ] User authentication
+* [ ] Multiple user accounts
+* [ ] Task assignment
+* [ ] Drag-and-drop task movement
+* [ ] Task editing
+* [ ] Task due dates
+* [ ] Task priorities
+* [ ] Search and filtering
+* [ ] Dark mode
+* [ ] PostgreSQL/MySQL support
+* [ ] Activity history
+* [ ] Team collaboration
+* [ ] Email notifications
 
-Task editing
+---
 
-Task due dates
-
-Task priorities
-
-Search and filtering
-
-Dark mode
-
-PostgreSQL/MySQL support
-
-Activity history
-
-Team collaboration
-
-Email notifications
-
-🤝 Contributing
+# 🤝 Contributing
 
 Contributions are welcome.
 
-Development Workflow
+## Development Workflow
 
-# Create a feature branch
+### 1. Create a Feature Branch
+
+```bash
 git checkout -b feature/your-feature-name
+```
 
-# Make your changes
+### 2. Make Your Changes
 
-# Commit your changes
+Implement and test the feature.
+
+### 3. Commit Your Changes
+
+```bash
 git commit -m "feat: add your feature"
+```
 
-# Push the branch
+### 4. Push the Branch
+
+```bash
 git push origin feature/your-feature-name
+```
 
-Before submitting a pull request:
+### Before Submitting a Pull Request
 
-Application runs successfully
+Make sure:
 
-REST API endpoints work correctly
+* Application runs successfully
+* REST API endpoints work correctly
+* Database operations work correctly
+* Existing functionality is not broken
+* UI remains responsive
+* Code follows the existing project structure
 
-Database operations work correctly
+---
 
-Existing functionality is not broken
-
-UI remains responsive
-
-Code follows the existing project structure
-
-📚 Learning Outcomes
+# 📚 Learning Outcomes
 
 This project demonstrates practical understanding of:
 
-Flask web application development
+* Flask web application development
+* RESTful API design
+* CRUD operations
+* SQLite database integration
+* HTML/CSS frontend development
+* Vanilla JavaScript
+* Client-server communication
+* JSON-based API requests
+* Responsive web design
+* Agile/Scrum development
+* Cloud deployment using Render
 
-RESTful API design
+---
 
-CRUD operations
+# 📜 License
 
-SQLite database integration
+This project is distributed under the **MIT License**.
 
-HTML/CSS frontend development
+See [`LICENSE`](LICENSE) for the complete license text.
 
-Vanilla JavaScript
+---
 
-Client-server communication
+# 👤 Project
 
-JSON-based API requests
+**Mini-Trello — Kanban Task Management Board**
 
-Responsive web design
+Built as a **7th Semester student project** to demonstrate practical frontend, backend, database, REST API, and Agile/Scrum development skills.
 
-Agile/Scrum development
-
-Cloud deployment using Render
-
-📜 License
-
-Distributed under the MIT License.
-
-See LICENSE for the complete license text.
-
-👤 Project
-
-Mini-Trello — Kanban Task Management Board
-
-Built as a 7th Semester student project to demonstrate practical frontend, backend, database, REST API, and Agile/Scrum development skills.
+---
 
 <div align="center">
 
-If you found this project useful, consider giving it a ⭐
+### ⭐ If you found this project useful, consider giving it a star!
 
-<br/>
+<br>
 
-Built with Python · Flask · JavaScript · SQLite
+**Built with Python · Flask · JavaScript · SQLite**
 
-Educational project · Built for learning and demonstration purposes
+*Educational project · Built for learning and demonstration purposes*
 
 </div>
